@@ -7,6 +7,16 @@ function App() {
 
   const addProtein = (event) => {
     event.preventDefault()
+
+    const proteinObject = {
+      name: food,
+      grams: grams,
+      id: proteins.length + 1,
+    }
+
+    setProteins(proteins.concat(proteinObject))
+    setFood('')
+    setGrams(0)
   }
 
   return (
@@ -20,6 +30,13 @@ function App() {
         <br />
         <button>Add</button>
       </form>
+      <ul>
+        {proteins.map((protein) => (
+          <li key={protein.id}>
+            {protein.name} - {protein.grams} grams
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
