@@ -1,9 +1,20 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function App() {
   const [proteins, setProteins] = useState([])
   const [food, setFood] = useState('')
   const [grams, setGrams] = useState(0)
+
+  useEffect(() => {
+    const proteins = JSON.parse(localStorage.getItem('proteins'))
+    if (proteins) {
+      setProteins(proteins)
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('proteins', JSON.stringify(proteins))
+  }, [proteins])
 
   const addProtein = (event) => {
     event.preventDefault()
