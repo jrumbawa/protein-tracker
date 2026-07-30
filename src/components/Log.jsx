@@ -1,9 +1,4 @@
 export default function Log({ entries }) {
-  const totalProtein = entries.reduce(
-    (total, entry) => total + entry.proteinAmount,
-    0,
-  )
-
   return (
     <div className="bg-white border border-gray-200 rounded-xl p-4">
       <ul className="divide-y divide-gray-100">
