@@ -2,8 +2,11 @@ import { useState, useEffect } from 'react'
 import Log from './components/Log'
 import ProteinInput from './components/ProteinInput'
 import ProgressBar from './components/ProgressBar'
+import SettingsModal from './components/SettingsModal'
+import SettingsIcon from './components/SettingsIcon'
 
 function App() {
+  const [showSettings, setShowSettings] = useState(false)
   const [entries, setEntries] = useState(() => {
     const log = localStorage.getItem('entries')
     return log ? JSON.parse(log) : []
@@ -39,6 +42,9 @@ function App() {
 
   return (
     <div className="max-w-sm mx-auto text-center space-y-4">
+      <div className="flex p-4">
+        <SettingsIcon handleShowSettings={setShowSettings} />
+      </div>
       <div>
         <p className="text-sm text-gray-500">Today's protein</p>
         <p className="text-6xl font-bold text-emerald-600">
@@ -49,6 +55,13 @@ function App() {
       <ProgressBar totalProtein={totalProtein} proteinGoal={proteinGoal} />
       <ProteinInput onAddEntry={handleAddEntry} />
       <Log entries={entries} />
+      {showSettings && (
+        <SettingsModal
+          proteinGoal={proteinGoal}
+          setProteinGoal={setProteinGoal}
+          setShowSettings={setShowSettings}
+        />
+      )}
     </div>
   )
 }
