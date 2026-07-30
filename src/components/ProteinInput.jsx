@@ -2,13 +2,13 @@ import { useState } from 'react'
 
 export default function ProteinInput({ onAddEntry }) {
   const [proteinName, setProteinName] = useState('')
-  const [proteinAmount, setProteinAmount] = useState(0)
+  const [proteinAmount, setProteinAmount] = useState(null)
 
   function handleSubmit(event) {
     event.preventDefault()
     onAddEntry(proteinName, proteinAmount)
     setProteinName('')
-    setProteinAmount(0)
+    setProteinAmount(null)
   }
 
   return (
@@ -28,6 +28,7 @@ export default function ProteinInput({ onAddEntry }) {
         value={proteinAmount}
         type="number"
         onChange={(e) => setProteinAmount(e.target.value)}
+        placeholder="0"
       />
       <button
         className="col-span-3 h-10 bg-emerald-600 text-white rounded-lg text-sm font-semibold"
