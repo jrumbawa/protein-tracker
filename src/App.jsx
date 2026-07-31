@@ -4,9 +4,11 @@ import ProteinInput from './components/ProteinInput'
 import ProgressBar from './components/ProgressBar'
 import SettingsModal from './components/SettingsModal'
 import SettingsIcon from './components/SettingsIcon'
+import ClearLogModal from './components/ClearLogModal'
 
 function App() {
   const [showSettings, setShowSettings] = useState(false)
+  const [showClearLogModal, setShowClearLogModal] = useState(false)
   const [entries, setEntries] = useState(() => {
     const log = localStorage.getItem('entries')
     return log ? JSON.parse(log) : []
@@ -59,6 +61,20 @@ function App() {
       <ProgressBar totalProtein={totalProtein} proteinGoal={proteinGoal} />
       <ProteinInput onAddEntry={handleAddEntry} />
       <Log entries={entries} onDeleteEntry={handleDeleteEntry} />
+      {entries.length > 0 && (
+        <button
+          className="bg-red-500 text-white hover:bg-red-700 w-full h-10 rounded-lg text-sm font-semibold"
+          onClick={() => setShowClearLogModal(true)}
+        >
+          Clear Log
+        </button>
+      )}
+      {showClearLogModal && (
+        <ClearLogModal
+          setShowClearLogModal={setShowClearLogModal}
+          setEntries={setEntries}
+        />
+      )}
       {showSettings && (
         <SettingsModal
           proteinGoal={proteinGoal}
