@@ -35,6 +35,10 @@ function App() {
     setEntries((prev) => [...prev, newEntry])
   }
 
+  function handleDeleteEntry(id) {
+    setEntries(entries.filter((entry) => entry.id !== id))
+  }
+
   const totalProtein = entries.reduce(
     (total, entry) => total + entry.proteinAmount,
     0,
@@ -43,7 +47,7 @@ function App() {
   return (
     <div className="max-w-sm mx-auto text-center space-y-4">
       <div className="flex p-4">
-        <SettingsIcon handleShowSettings={setShowSettings} />
+        <SettingsIcon setShowSettings={setShowSettings} />
       </div>
       <div>
         <p className="text-sm text-gray-500">Today's protein</p>
@@ -54,7 +58,7 @@ function App() {
       </div>
       <ProgressBar totalProtein={totalProtein} proteinGoal={proteinGoal} />
       <ProteinInput onAddEntry={handleAddEntry} />
-      <Log entries={entries} />
+      <Log entries={entries} onDeleteEntry={handleDeleteEntry} />
       {showSettings && (
         <SettingsModal
           proteinGoal={proteinGoal}
