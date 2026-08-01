@@ -46,9 +46,16 @@ function App() {
     0,
   )
 
+  const date = new Date().toLocaleDateString([], {
+    weekday: 'short',
+    month: 'long',
+    day: 'numeric',
+  })
+
   return (
     <div className="max-w-sm mx-auto text-center space-y-4">
-      <div className="flex p-4">
+      <div className="flex py-4">
+        <p className="text-gray-400">{date}</p>
         <SettingsIcon setShowSettings={setShowSettings} />
       </div>
       <div>
