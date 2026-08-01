@@ -6,9 +6,11 @@ export default function ProteinInput({ onAddEntry }) {
 
   function handleSubmit(event) {
     event.preventDefault()
-    onAddEntry(proteinName, proteinAmount)
-    setProteinName('')
-    setProteinAmount('')
+    if (proteinName.trim().length > 0 && Number(proteinAmount) > 0) {
+      onAddEntry(proteinName, proteinAmount)
+      setProteinName('')
+      setProteinAmount('')
+    }
   }
 
   return (
