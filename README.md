@@ -2,7 +2,7 @@
 
 A simple, fast daily protein tracker. Log what you eat, watch your total climb toward your goal, and pick up right where you left off — everything's saved locally in your browser.
 
-![Protein Tracker screenshot](./docs/screenshot.png)
+![Protein Tracker screenshot](./docs/screenshot-v2.png)
 
 ## Features
 
