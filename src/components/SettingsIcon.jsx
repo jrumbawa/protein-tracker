@@ -3,7 +3,7 @@ import { Settings } from 'lucide-react'
 export default function SettingsIcon({ setShowSettings }) {
   return (
     <Settings
-      className="text-gray-400 hover:text-gray-600 ml-auto"
+      className="text-gray-400 hover:text-gray-600"
       onClick={() => setShowSettings(true)}
     />
   )

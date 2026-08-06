@@ -1,0 +1,22 @@
+[
+  { "name": "Egg", "proteinAmount": 6 },
+  { "name": "Chicken breast (100g)", "proteinAmount": 31 },
+  { "name": "Greek yogurt (170g)", "proteinAmount": 17 },
+  { "name": "Cottage cheese (1/2 cup)", "proteinAmount": 12 },
+  { "name": "Salmon (100g)", "proteinAmount": 22 },
+  { "name": "Ground beef (100g)", "proteinAmount": 26 },
+  { "name": "Tofu (100g)", "proteinAmount": 8 },
+  { "name": "Black beans (1/2 cup)", "proteinAmount": 8 },
+  { "name": "Whey protein scoop", "proteinAmount": 24 },
+  { "name": "Almonds (1/4 cup)", "proteinAmount": 8 },
+  { "name": "Peanut butter (2 tbsp)", "proteinAmount": 7 },
+  { "name": "Milk (1 cup)", "proteinAmount": 8 },
+  { "name": "Turkey breast (100g)", "proteinAmount": 29 },
+  { "name": "Tuna (1 can)", "proteinAmount": 27 },
+  { "name": "Shrimp (100g)", "proteinAmount": 24 },
+  { "name": "Quinoa (1 cup cooked)", "proteinAmount": 8 },
+  { "name": "Lentils (1/2 cup cooked)", "proteinAmount": 9 },
+  { "name": "Cheddar cheese (1 oz)", "proteinAmount": 7 },
+  { "name": "Edamame (1/2 cup)", "proteinAmount": 9 },
+  { "name": "Protein bar", "proteinAmount": 20 }
+]
