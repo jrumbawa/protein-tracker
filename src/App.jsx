@@ -4,11 +4,14 @@ import ProteinInput from './components/ProteinInput'
 import ProgressBar from './components/ProgressBar'
 import SettingsModal from './components/SettingsModal'
 import SettingsIcon from './components/SettingsIcon'
+import FoodLogIcon from './components/FoodLogIcon'
 import ClearLogModal from './components/ClearLogModal'
+import QuickAddModal from './components/QuickAddModal'
 
 function App() {
   const [showSettings, setShowSettings] = useState(false)
   const [showClearLogModal, setShowClearLogModal] = useState(false)
+  const [showFoodLog, setShowFoodLog] = useState(false)
   const [entries, setEntries] = useState(() => {
     const log = localStorage.getItem('entries')
     return log ? JSON.parse(log) : []
@@ -25,6 +28,17 @@ function App() {
   useEffect(() => {
     localStorage.setItem('proteinGoal', JSON.stringify(proteinGoal))
   }, [proteinGoal])
+
+  useEffect(() => {
+    if (showClearLogModal || showFoodLog || showSettings) {
+      document.body.style.overflow = 'hidden'
+      return () => {
+        document.body.style.overflow = 'auto'
+      }
+    } else {
+      document.body.style.overflow = 'auto'
+    }
+  }, [showClearLogModal, showFoodLog, showSettings])
 
   function handleAddEntry(name, proteinAmount) {
     const newEntry = {
@@ -54,8 +68,9 @@ function App() {
 
   return (
     <div className="max-w-sm mx-auto text-center space-y-4">
-      <div className="flex py-4">
+      <div className="flex py-4 gap-3">
         <p className="text-gray-400">{date}</p>
+        <FoodLogIcon setShowFoodLog={setShowFoodLog} />
         <SettingsIcon setShowSettings={setShowSettings} />
       </div>
       <div>
@@ -87,6 +102,12 @@ function App() {
           proteinGoal={proteinGoal}
           setProteinGoal={setProteinGoal}
           setShowSettings={setShowSettings}
+        />
+      )}
+      {showFoodLog && (
+        <QuickAddModal
+          handleAddEntry={handleAddEntry}
+          setShowFoodLog={setShowFoodLog}
         />
       )}
     </div>
