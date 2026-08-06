@@ -26,7 +26,7 @@ A simple, fast daily protein tracker. Log what you eat, watch your total climb t
 Clone the repo and install dependencies:
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/jrumbawa/protein-tracker.git
 cd protein-tracker
 npm install
 ```
