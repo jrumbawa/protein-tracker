@@ -55,6 +55,22 @@ function App() {
     setEntries(entries.filter((entry) => entry.id !== id))
   }
 
+  function handleUpdateEntry(id, name, proteinAmount) {
+    const trimmedName = name.trim()
+    const parsedProteinAmount = Number(proteinAmount)
+
+    if (!trimmedName || parsedProteinAmount <= 0) return false
+
+    setEntries((prev) =>
+      prev.map((entry) =>
+        entry.id === id
+          ? { ...entry, name: trimmedName, proteinAmount: parsedProteinAmount }
+          : entry,
+      ),
+    )
+    return true
+  }
+
   const totalProtein = entries.reduce(
     (total, entry) => total + entry.proteinAmount,
     0,
@@ -82,7 +98,11 @@ function App() {
       </div>
       <ProgressBar totalProtein={totalProtein} proteinGoal={proteinGoal} />
       <ProteinInput onAddEntry={handleAddEntry} />
-      <Log entries={entries} onDeleteEntry={handleDeleteEntry} />
+      <Log
+        entries={entries}
+        onDeleteEntry={handleDeleteEntry}
+        onUpdateEntry={handleUpdateEntry}
+      />
       {entries.length > 0 && (
         <button
           className="bg-red-500 text-white hover:bg-red-700 w-full h-10 rounded-lg text-sm font-semibold"

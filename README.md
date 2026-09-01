@@ -9,6 +9,7 @@ A simple, fast daily protein tracker. Log what you eat, watch your total climb t
 - **Log entries** — food name + protein grams, logged with a timestamp
 - **Daily goal + progress bar** — set a target in Settings and track progress at a glance
 - **Delete a single entry** — remove a mistaken or duplicate log with one click
+- **Edit an existing entry** — correct a food name or protein amount inline
 - **Clear the whole log** — reset your day, with a confirmation step so it's not a one-click accident
 - **Persistent storage** — entries and your goal are saved to `localStorage`, so refreshing the page (or closing the tab) doesn't lose your data
 - **Input validation** — the form won't accept an empty food name or a zero/negative amount
@@ -44,7 +45,7 @@ Then open the local URL Vite prints in your terminal (usually `http://localhost:
 1. Type a food name and its protein content (in grams) into the input fields and hit **Add**.
 2. Your running total and progress bar update immediately.
 3. Click the **gear icon** to set or change your daily protein goal.
-4. Remove a single entry with the trash icon next to it, or clear the whole log with the **Clear Log** button (you'll be asked to confirm).
+4. Edit an entry with its pencil icon, remove one with its trash icon, or clear the whole log with the **Clear Log** button (you'll be asked to confirm).
 5. Everything persists automatically — close the tab and come back later, your log will still be there.
 
 ## Project structure
@@ -64,6 +65,5 @@ src/
 
 ## Possible next steps
 
-- Edit an existing entry
 - History / past-days view
 - TypeScript
