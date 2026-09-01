@@ -6,7 +6,7 @@ export default function ProteinInput({ onAddEntry }) {
 
   function handleSubmit(event) {
     event.preventDefault()
-    if (proteinName.trim().length > 0 && Number(proteinAmount) > 0) {
+    if (proteinName.trim().length > 0 && Number(proteinAmount) >= 1) {
       onAddEntry(proteinName, proteinAmount)
       setProteinName('')
       setProteinAmount('')
@@ -29,6 +29,7 @@ export default function ProteinInput({ onAddEntry }) {
         className="h-10 border border-gray-300 rounded-lg px-3 text-sm text-gray-800"
         value={proteinAmount}
         type="number"
+        min="1"
         onChange={(e) => setProteinAmount(e.target.value)}
         placeholder="Grams"
       />

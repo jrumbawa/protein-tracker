@@ -41,6 +41,9 @@ function App() {
   }, [showClearLogModal, showFoodLog, showSettings])
 
   function handleAddEntry(name, proteinAmount) {
+    const parsed = Number(proteinAmount)
+    if (!Number.isFinite(parsed) || parsed < 1) return
+
     const newEntry = {
       id: crypto.randomUUID(),
       name,
